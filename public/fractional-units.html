@@ -1,0 +1,36 @@
+<div class="form-group">
+    <div class="form-group">
+      <label>Base Units</label>
+      <select
+        ng-model="editor.formatParams.baseunit"
+        ng-options="opt.id as opt.name for opt in editor.field.format.type.baseunitOpts"
+        class="form-control">
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Display Method</label>
+      <select
+        ng-model="editor.formatParams.method"
+        ng-options="opt.id as opt.name for opt in editor.field.format.type.methodOpts"
+        class="form-control">
+      </select>
+    </div>
+    <div class="form-group" ng-if="editor.formatParams.method=='digits-fixed' || editor.formatParams.method=='digits-optional'">
+      <label>Number of Digits</label>
+      <select
+        ng-model="editor.formatParams.digits"
+        ng-options="opt.id as opt.name for opt in editor.field.format.type.digitsOpts"
+        class="form-control">
+      </select>
+    </div>
+    <div class="form-group" ng-if="editor.formatParams.method=='decimal-fixed' || editor.formatParams.method=='decimal-optional'">
+      <label>Number of Decimal Points</label>
+      <select
+        ng-model="editor.formatParams.dp"
+        ng-options="opt.id as opt.name for opt in editor.field.format.type.dpOpts"
+        class="form-control">
+      </select>
+    </div>
+</div>
+
+<field-format-editor-samples inputs="editor.field.format.type.sampleInputs"></field-format-editor-samples>

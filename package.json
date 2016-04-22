@@ -1,0 +1,10 @@
+{
+  "name": "kibana-field-formatters",
+  "version": "0.1.0",
+  "description": "A sample plugin to demonstrate field formatters",
+  "main": "gulpfile.js",
+  "scripts": {
+  },
+  "dependencies": {
+  }
+}
