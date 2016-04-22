@@ -34,7 +34,11 @@ Tested on Kibana 4.6
 
 ## How to install
 
-Simply clone the repo into `installedPlugins`, and restart Kibana. No npm requirements.
+Simple clone:
+- Simply clone the repo into `installedPlugins`, and restart Kibana. No NPM requirements.
+
+or via the Kibana CLI:
+- `./kibana plugin --install kibana-field-formatters -u https://github.com/vend/kibana-field-formatters/archive/master.zip`
 
 ## Useful Info
 
