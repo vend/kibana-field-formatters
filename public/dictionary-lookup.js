@@ -1,8 +1,13 @@
+import { RegistryFieldFormatsProvider } from 'ui/registry/field_formats'
+import { IndexPatternsFieldFormatProvider } from 'ui/index_patterns/_field_format/field_format';
+import dictionaryLookupTemplate from 'plugins/kibana-field-formatters/dictionary-lookup.html';
+
 function DictionaryLookupProvider(Private) {
 
   // This needs to use Kibana's running version of lodash, and not any local version in node_modules
   var _ = require('lodash');
-  var FieldFormat = Private(require('ui/index_patterns/_field_format/FieldFormat'));
+  var FieldFormat = Private(IndexPatternsFieldFormatProvider);
+  
   const DICTIONARY_PROTOCOLS = {
     "0": "HOPOPT",
     "1": "ICMP",
@@ -166,7 +171,7 @@ function DictionaryLookupProvider(Private) {
     'number'
   ];
 
-  DictionaryLookup.editor = require('plugins/kibana-field-formatters/dictionary-lookup.html');
+  DictionaryLookup.editor = dictionaryLookupTemplate;
   DictionaryLookup.sampleInputs = [
     1,4,6
   ];
@@ -219,4 +224,4 @@ function DictionaryLookupProvider(Private) {
 }
 
 // Register the provider to the field_formats registry
-require('ui/registry/field_formats').register(DictionaryLookupProvider);
+RegistryFieldFormatsProvider.register(DictionaryLookupProvider);

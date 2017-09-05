@@ -1,8 +1,12 @@
+import { RegistryFieldFormatsProvider } from 'ui/registry/field_formats'
+import { IndexPatternsFieldFormatProvider } from 'ui/index_patterns/_field_format/field_format';
+import fractionUnitsTemplate from 'plugins/kibana-field-formatters/fractional-units.html';
+
 function FractionalUnitsFieldFormatProvider(Private) {
 
   // This needs to use Kibana's running version of lodash, and not any local version in node_modules
   var _ = require('lodash');
-  var FieldFormat = Private(require('ui/index_patterns/_field_format/FieldFormat'));
+  var FieldFormat = Private(IndexPatternsFieldFormatProvider);
   
   // Create a new FieldFormat type and inherit FieldFormat
   _.class(FractionalUnitsFieldFormat).inherits(FieldFormat);
@@ -62,7 +66,7 @@ function FractionalUnitsFieldFormatProvider(Private) {
     { id: 3, name: '3 dp'},
   ];
 
-  FractionalUnitsFieldFormat.editor = require('plugins/kibana-field-formatters/fractional-units.html');
+  FractionalUnitsFieldFormat.editor = fractionUnitsTemplate;
   FractionalUnitsFieldFormat.sampleInputs = [
     1010,7.9,0.025,0.0009991,0.0000000333333333,0.000000000069
   ];
@@ -135,4 +139,4 @@ function FractionalUnitsFieldFormatProvider(Private) {
 }
 
 // Register the provider to the field_formats registry
-require('ui/registry/field_formats').register(FractionalUnitsFieldFormatProvider);
+RegistryFieldFormatsProvider.register(FractionalUnitsFieldFormatProvider);

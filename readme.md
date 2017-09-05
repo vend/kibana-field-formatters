@@ -30,7 +30,7 @@ Bugs:
 
 ## Requirements
 
-Tested on Kibana 4.6
+Tested on Kibana 5.5.2
 
 ## How to install
 
